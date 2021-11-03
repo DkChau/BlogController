@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link } from 'react-router-dom';
 
 const BlogPost = (props) => {
     return (
@@ -7,6 +8,9 @@ const BlogPost = (props) => {
             <div>{props.data.text}</div>
             <div>{props.data.date}</div>
             <div>{props.data.published ? 'Unpublish' : 'Publish'}</div>
+            <Link to={'/post/'+props.data._id}>
+                <span>View Post</span>
+            </Link>
         </div>
     )
 }

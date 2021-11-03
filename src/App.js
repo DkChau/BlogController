@@ -4,6 +4,7 @@ import Home from './Components/Home';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import CreatePost from './Components/CreatePost';
+import ViewPost from './Components/ViewPost';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/create' component={CreatePost}/>
+        <Route exact path='/post/:id' component={ViewPost}/>
       </Switch>
     </Router>
   );

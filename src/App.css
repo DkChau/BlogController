@@ -33,3 +33,29 @@
   width:80vw;
   margin:0 auto;
 }
+
+/* View Post */
+.viewPost{
+  display:flex;
+  flex-direction: column;
+  width:80%;
+  margin:0 auto;
+  border:1px solid black;
+  margin-bottom:40px;
+}
+.comment{
+  border:1px solid black;
+  margin:20px auto;
+  display:flex;
+  flex-direction: column;
+}
+.formContainer{
+  width:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.createComment{
+  display:flex;
+  flex-direction: column;
+}
