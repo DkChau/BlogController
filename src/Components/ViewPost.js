@@ -80,6 +80,9 @@ const ViewPost = (props) => {
                 <div>{post.title}</div>
                 <div>{post.text}</div>
                 <div>{post.date}</div>
+                <Link to={`/post/${props.match.params.id}/delete`}>
+                    <span>Delete Post</span>
+                </Link>
             </div>
             <div className='commentSection'>
                 {comments.map(comment=>{

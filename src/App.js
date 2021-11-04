@@ -6,6 +6,8 @@ import NavBar from './Components/NavBar';
 import CreatePost from './Components/CreatePost';
 import ViewPost from './Components/ViewPost';
 import LoginForm from './Components/LoginForm';
+import DeleteComment from './Components/DeleteComment';
+import DeletePost from './Components/DeletePost';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route exact path='/create' component={CreatePost}/>
         <Route exact path='/post/:id' component={ViewPost}/>
         <Route exact path='/login' component={LoginForm}/>
+        <Route exact path='/post/:id/comment/:commentId' component={DeleteComment}/>;
+        <Route exact path='/post/:id/delete' component={DeletePost}/>
       </Switch>
     </Router>
   );
