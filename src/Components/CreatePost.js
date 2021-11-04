@@ -14,6 +14,7 @@ const CreatePost = () => {
 
         fetch('http://localhost:3000/api/post', {
             method:'POST',
+            credentials:'include',
             headers:{
                 'Content-Type': 'application/json',
             },
@@ -26,6 +27,7 @@ const CreatePost = () => {
             return data.json();
         })
         .then(response=>{
+            console.log(response);
             if(response.errors){
                 setErrors(response.errors)
             }
