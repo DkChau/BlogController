@@ -3,27 +3,74 @@
   margin:0;
   padding:0;
 }
-
+body{
+  height:auto;
+  width:100%;
+  background:#f8f8f8;
+}
+input{
+  height:30px;
+}
 /* Nav Bar */
 .navBar{
-  display:flex;
-  justify-content: space-around;
-  height:50px;
-  align-items: center;
+  display:grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-content:center;
+  height:100px;
+  width:100%;
+  border-bottom:1px solid black;
+  font-size:1.2rem;
 }
 .navLink{
-  border:1px solid black;
   padding:10px 5px;
   text-decoration: none;
   color:black;
 }
-
-/* Display a Post */
+.navLink:hover{
+  color:red;
+}
+.navSection{
+  display:flex;
+  width:70%;
+  max-width:500px;
+  margin:0 auto;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size:2rem;
+}
+/* Home */
+.bottomRow{
+  display:flex;
+  width:100%;
+  justify-content: space-between;
+}
 .singlePost{
-  width:95%;
-  padding:30px 15px;
-  border: 1px solid black;
+  width:80%;
+  padding:10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin:20px auto;
+}
+.textSection{
+  width:100%;
   margin:10px auto;
+  /* border:1px solid black; */
+  height:100px;
+  white-space:pre-line;
+}
+.titleSection{
+
+}
+.rightSide.bottom{
+  display:flex;
+  width:200px;
+  justify-content: space-around;
 }
 
 /* Create a Post */
@@ -58,4 +105,43 @@
 .createComment{
   display:flex;
   flex-direction: column;
+}
+
+/* Login Route */
+
+.loginForm{
+  display:grid;
+  height:calc(100vh - 100px);
+  grid-template-rows: 15% 15% 70%;
+  grid-template-columns: 1fr;
+  width:70%;
+  max-width:600px;
+  margin:0 auto;
+  justify-content: center;
+  align-content: center;
+}
+.inputWrapper{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+}
+.inputSection{
+  display:flex;
+  flex-direction: column;
+  margin:10px 0;
+  font-size:1.2rem;
+  width:80%;
+}
+.submitBtn{
+  height:30px;
+  width:80%;
+  margin:10px 0;
+}
+.errorSection,.successSection{
+  font-size:1.2rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -4,13 +4,19 @@ import {Link } from 'react-router-dom';
 const BlogPost = (props) => {
     return (
         <div className='singlePost'>
-            <div>{props.data.title}</div>
-            <div>{props.data.text}</div>
-            <div>{props.data.date}</div>
-            <div>{props.data.published ? 'Unpublish' : 'Publish'}</div>
-            <Link to={'/post/'+props.data._id}>
-                <span>View Post</span>
-            </Link>
+            <div className='titleSection'>{props.data.title}</div>
+            <div className='textSection'>{props.data.text}</div>
+            <div className='bottomRow'>
+                <div>{props.data.date}</div>
+                <div className='rightSide bottom'>
+                    <div>{props.data.published ? 'Unpublish' : 'Publish'}</div>
+                    <Link to={'/post/'+props.data._id}>
+                        <span>View Post</span>
+                    </Link>
+                </div>
+
+            </div>
+
         </div>
     )
 }

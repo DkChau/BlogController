@@ -8,6 +8,7 @@ import ViewPost from './Components/ViewPost';
 import LoginForm from './Components/LoginForm';
 import DeleteComment from './Components/DeleteComment';
 import DeletePost from './Components/DeletePost';
+import UpdatePost from './Components/UpdatePost';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/login' component={LoginForm}/>
         <Route exact path='/post/:id/comment/:commentId' component={DeleteComment}/>;
         <Route exact path='/post/:id/delete' component={DeletePost}/>
+        <Route exact path='/post/:id/update' component={UpdatePost}/>
       </Switch>
     </Router>
   );

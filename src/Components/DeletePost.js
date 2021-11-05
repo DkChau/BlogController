@@ -12,7 +12,7 @@ const DeletePost = (props) => {
 
     //Initial Api call to get post and comments
     useEffect(()=>{
-        fetch(`http://localhost:3000/api/post/${props.match.params.id}`)
+        fetch(`http://localhost:3000/api/post/${props.match.params.id}`, {credentials:'include'})
             .then(data=>{
                 return data.json()
             })

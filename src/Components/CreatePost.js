@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import {Redirect} from 'react-router';
 
 const CreatePost = () => {
@@ -8,6 +8,7 @@ const CreatePost = () => {
 
     const [redirect, setRedirect] = useState(false);
     const [errors, setErrors] = useState([])
+    const [route, setRoute] = useState('');
 
     const createPost = (e) =>{
         e.preventDefault();
@@ -27,12 +28,12 @@ const CreatePost = () => {
             return data.json();
         })
         .then(response=>{
-            console.log(response);
+            console.log(response);//
             if(response.errors){
                 setErrors(response.errors)
             }
             else{
-                setRedirect(true);
+                setRoute(response._id);
             }
         })
         .catch(err=>{
@@ -40,8 +41,15 @@ const CreatePost = () => {
         })
     }
 
+    //Get new post route and redirect to it
+    useEffect(()=>{
+        if(route!==''){
+            setRedirect(true)
+        }
+    },[route])
+
     if(redirect){
-        return (<Redirect to='/'></Redirect>)
+        return (<Redirect to={`/post/${route}`}></Redirect>)
     }
 
     return (
@@ -61,7 +69,7 @@ const CreatePost = () => {
                 <input ref={titleRef} type='text' id='title' name='title'></input>
 
                 <label for='text'>Text</label>
-                <input ref={textRef} type='text' id='text' name='text'></input>
+                <textarea ref={textRef} type='text' id='text' name='text'></textarea>
 
                 <button onClick={createPost} type='submit'>Submit</button>
             </form>

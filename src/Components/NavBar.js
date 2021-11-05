@@ -4,15 +4,21 @@ import {Link} from 'react-router-dom'
 const NavBar = () => {
     return (
         <div className='navBar'>
-            <Link to='/'>
-                <span className='navLink'>Go Home</span>
-            </Link>
-            <Link to='/create'>
-                <span className='navLink'>Create Post</span>
-            </Link>
-            <Link to='/login'>
-                <span className='navLink'>Login</span> 
-            </Link>
+            <div className='logo'>
+                <div>Blog Controller</div>
+            </div>
+            <div className='navSection'>
+                <Link className='navLink' to='/'>
+                    <span >Posts</span>
+                </Link>
+                <Link className='navLink' to='/create'>
+                    <span >Create Post</span>
+                </Link>
+                <Link className='navLink' to='/login'>
+                    <span >Login</span> 
+                </Link>
+            </div>
+
         </div>
     )
 }

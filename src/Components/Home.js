@@ -9,7 +9,7 @@ const Home = () => {
     useEffect(()=>{
         setLoading(true);
         
-        fetch('http://localhost:3000/api/post',{})
+        fetch('http://localhost:3000/api/post',{credentials:'include'})
             .then(response=>{
                 return response.json();
             })
@@ -28,11 +28,17 @@ const Home = () => {
     }
     return (
         <div>
-            {posts.map(post=>{
-                return(
-                    <BlogPost data={post}/>
-                )
-            })}
+            {
+                posts.length===0 ? 
+                
+                    <div>No posts found</div> 
+                    :
+                    posts.map(post=>{
+                        return(
+                            <BlogPost data={post}/>
+                        )
+                    })
+            }
         </div>
     )
 }
