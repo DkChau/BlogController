@@ -15,8 +15,8 @@ const ViewPost = (props) => {
 
     //Initial Api call to get post and comments
     useEffect(()=>{
-        let postPromise = fetch(`http://localhost:3000/api/post/${props.match.params.id}`,{credentials:'include'})
-        let commentPromise = fetch(`http://localhost:3000/api/post/${props.match.params.id}/comment`,{credentials:'include'})
+        let postPromise = fetch(`https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}`,{credentials:'include'})
+        let commentPromise = fetch(`https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}/comment`,{credentials:'include'})
 
         Promise.all([postPromise, commentPromise])
         .then(([post,comments])=>{
@@ -42,7 +42,7 @@ const ViewPost = (props) => {
     const submitComment = (e) =>{
         e.preventDefault()
 
-        fetch(`http://localhost:3000/api/post/${props.match.params.id}/comment`,
+        fetch(`https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}/comment`,
             {
                 method:'POST',
                 headers:{

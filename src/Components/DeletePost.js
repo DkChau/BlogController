@@ -12,7 +12,7 @@ const DeletePost = (props) => {
 
     //Initial Api call to get post and comments
     useEffect(()=>{
-        fetch(`http://localhost:3000/api/post/${props.match.params.id}`, {credentials:'include'})
+        fetch(`https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}`, {credentials:'include'})
             .then(data=>{
                 return data.json()
             })
@@ -30,7 +30,7 @@ const DeletePost = (props) => {
         e.preventDefault();
 
         fetch(
-            `http://localhost:3000/api/post/${props.match.params.id}`,
+            `https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}`,
             {
                 method:'DELETE',
                 credentials:'include',

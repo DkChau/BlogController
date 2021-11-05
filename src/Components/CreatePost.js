@@ -13,7 +13,7 @@ const CreatePost = () => {
     const createPost = (e) =>{
         e.preventDefault();
 
-        fetch('http://localhost:3000/api/post', {
+        fetch('https://dcblogapi.herokuapp.com/api/post', {
             method:'POST',
             credentials:'include',
             headers:{

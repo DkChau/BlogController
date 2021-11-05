@@ -14,7 +14,7 @@ const LoginForm = () => {
     const submitForm = (e) =>{
         e.preventDefault();
 
-        fetch('http://localhost:3000/api/login',{
+        fetch('https://dcblogapi.herokuapp.com/api/login',{
             method:'POST',
             credentials:'include',
             headers:{

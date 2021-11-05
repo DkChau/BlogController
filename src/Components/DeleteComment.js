@@ -10,7 +10,7 @@ const DeleteComment = (props) => {
 
     useEffect(()=>{
         fetch(
-            `http://localhost:3000/api/post/${props.match.params.id}/comment/${props.match.params.commentId}`,
+            `https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}/comment/${props.match.params.commentId}`,
         )
         .then(data=>{
             return data.json()
@@ -33,7 +33,7 @@ const DeleteComment = (props) => {
         e.preventDefault();
 
         fetch(
-            `http://localhost:3000/api/post/${props.match.params.id}/comment/${props.match.params.commentId}`,
+            `https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}/comment/${props.match.params.commentId}`,
             {
                 method:'DELETE',
                 credentials:'include',

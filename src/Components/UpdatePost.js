@@ -13,7 +13,7 @@ const UpdatePost = (props) => {
 
     //Initial Api call to get post and comments
     useEffect(()=>{
-        fetch(`http://localhost:3000/api/post/${props.match.params.id}`)
+        fetch(`https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}`)
             .then(data=>{
                 return data.json()
             })
@@ -30,7 +30,7 @@ const UpdatePost = (props) => {
     const updatePost = (e) =>{
         e.preventDefault();
 
-        fetch(`http://localhost:3000/api/post/${props.match.params.id}`,{
+        fetch(`https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}`,{
             method:'PUT',
             credentials:'include',
             headers:{

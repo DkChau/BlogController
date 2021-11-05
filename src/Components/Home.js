@@ -9,7 +9,7 @@ const Home = () => {
     useEffect(()=>{
         setLoading(true);
         
-        fetch('http://localhost:3000/api/post',{credentials:'include'})
+        fetch('https://dcblogapi.herokuapp.com/api/post',{credentials:'include'})
             .then(response=>{
                 return response.json();
             })
