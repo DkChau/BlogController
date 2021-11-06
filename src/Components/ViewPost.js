@@ -75,42 +75,57 @@ const ViewPost = (props) => {
     }
 
     return (
-        <div>
+        <div className='viewContainer'>
             <div className='viewPost'>
-                <div>{post.title}</div>
-                <div>{post.text}</div>
-                <div>{post.date}</div>
-                <Link to={`/post/${props.match.params.id}/delete`}>
-                    <span>Delete Post</span>
-                </Link>
-                <Link to={`/post/${props.match.params.id}/update`}>
-                    <span>Update Post</span>
-                </Link>
+                <div className='textContainer'>
+                    <div className='viewTitle'>{post.title}</div>
+                    <div className='viewText'>{post.text}</div>
+                    
+                </div>
+                <div className='viewBottom'>
+                    <div className='viewDate'>Created: {post.date_formatted}</div>
+                    <div className='viewLinks'>
+                        <Link to={`/post/${props.match.params.id}/delete`}>
+                            <span>Delete Post</span>
+                        </Link>
+                        <Link to={`/post/${props.match.params.id}/update`}>
+                            <span>Update Post</span>
+                        </Link>
+                    </div>
+
+                </div>
+
+            </div>
+            <div className='viewFormContainer'>
+                <div className='commentTag'>Create Comment</div>
+                <form className='createComment'>
+
+                    <label htmlFor='name'>Name</label>
+                    <input ref={nameRef} id='name' name='name'></input>
+
+                    <label htmlFor='text'>Text</label>
+                    <textarea ref={textRef} id='text' name='text'></textarea>
+
+                    <button onClick={submitComment}>Submit Comment</button>
+                </form>
             </div>
             <div className='commentSection'>
-                {comments.map(comment=>{
+                <div className='commentTag'>Comments</div>
+                {comments.map((comment,index)=>{
                     return(
-                        <div className='comment'>
-                            <div>{comment.name}</div>
-                            <div>{comment.text}</div>
+                        <div key={`comment${index}`} className='comment'>
+                            <div className='commentHead'>
+                                <div className='commentName'>{comment.name}</div>
+                                <div className='commentDate'>Submitted: {comment.date_formatted}</div>
+                            </div>
+
+                            <div className='commentText'>{comment.text}</div>
                             <Link to={`/post/${props.match.params.id}/comment/${comment._id}`}>
-                                <span>Delete Comment</span>
+                                <span className='commentRight'>Delete Comment</span>
                             </Link>
                         </div>
                     )
                 })}
-            </div>
-            <div className='formContainer'>
-                <form className='createComment'>
-
-                    <label for='name'>Name</label>
-                    <input ref={nameRef} id='name' name='name'></input>
-
-                    <label for='text'>Text</label>
-                    <input ref={textRef} id='text' name='text'></input>
-
-                    <button onClick={submitComment}>Submit Comment</button>
-                </form>
             </div>
         </div>
 

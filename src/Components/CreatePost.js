@@ -53,7 +53,7 @@ const CreatePost = () => {
     }
 
     return (
-        <div>
+        <div className='formContainer'>
             <div className='errorContainer'>
                 {errors.map(error=>{
                     return (
@@ -64,14 +64,14 @@ const CreatePost = () => {
                 })}
             </div>
             <form className='submitForm' type='submit'>
-
-                <label for='title'>Title</label>
+                <div className='title'>Create Post</div>
+                <label htmlFor='title'>Title</label>
                 <input ref={titleRef} type='text' id='title' name='title'></input>
 
-                <label for='text'>Text</label>
-                <textarea ref={textRef} type='text' id='text' name='text'></textarea>
+                <label htmlFor='text'>Text</label>
+                <textarea ref={textRef} className='textArea' type='text' id='text' name='text'></textarea>
 
-                <button onClick={createPost} type='submit'>Submit</button>
+                <button className='createBtn' onClick={createPost} type='submit'>Submit</button>
             </form>
         </div>
 

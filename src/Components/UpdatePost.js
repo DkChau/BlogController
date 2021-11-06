@@ -6,19 +6,20 @@ const UpdatePost = (props) => {
     const [post, setPost] = useState({})
     const [errors, setErrors] = useState([])
     const [Loading, setLoading] = useState(true);
+    const [redirect ,setRedirect] = useState(false);
 
     const titleRef = useRef(null)
     const textRef = useRef(null)
+    const publishRef = useRef(null)
 
 
     //Initial Api call to get post and comments
     useEffect(()=>{
-        fetch(`https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}`)
+        fetch(`https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}`, {credentials:'include'})
             .then(data=>{
                 return data.json()
             })
             .then(response=>{
-                // console.log(response)
                 setPost(response)
                 setLoading(false);
             })
@@ -38,7 +39,8 @@ const UpdatePost = (props) => {
             },
             body:JSON.stringify({
                 title:titleRef.current.value,
-                text:textRef.current.value
+                text:textRef.current.value,
+                published:publishRef.current.checked
             })
         })
         .then(data=>{
@@ -46,17 +48,32 @@ const UpdatePost = (props) => {
         })
         .then(response=>{
             console.log(response)
+            setRedirect(true);
         })
         .catch(err=>{
             console.log(err);
         })
     }
 
+    if(redirect){
+        return <Redirect to={`/post/${props.match.params.id}`}></Redirect>
+    }
+
     return (
-        <div>
-            <form>
-                <input ref={titleRef} defaultValue={post.title}></input>
-                <input ref={textRef} defaultValue={post.text}></input>
+        <div className='formContainer'>
+            <form className='submitForm' type='submit'>
+                <div className='title'>Update Post</div>
+                <label htmlFor='title'>Title: </label>
+                <input ref={titleRef} type='text' id='title' name='title' defaultValue={post.title}></input>
+
+                <label htmlFor='text'>Text: </label>
+                <textarea ref={textRef} className='textArea' type='text' id='text' name='text' defaultValue={post.text}></textarea>
+                
+                <div className='checker'>
+                    <label htmlFor='checkBox'>Publish: </label>
+                    <input ref={publishRef} type='checkbox' id='checkBox' defaultChecked={post.published}></input>
+                </div>
+
                 <button onClick={updatePost}>Update post</button>
             </form>
         </div>

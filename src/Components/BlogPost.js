@@ -7,9 +7,9 @@ const BlogPost = (props) => {
             <div className='titleSection'>{props.data.title}</div>
             <div className='textSection'>{props.data.text}</div>
             <div className='bottomRow'>
-                <div>{props.data.date}</div>
+                <div>Created: {props.data.date_formatted}</div>
                 <div className='rightSide bottom'>
-                    <div>{props.data.published ? 'Unpublish' : 'Publish'}</div>
+                    <div>{props.data.published ? 'Published' : 'Hidden'}</div>
                     <Link to={'/post/'+props.data._id}>
                         <span>View Post</span>
                     </Link>

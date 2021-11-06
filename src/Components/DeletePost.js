@@ -60,19 +60,30 @@ const DeletePost = (props) => {
 
     return (
         <div className='DeletePost'>
-            <div>{post.title}</div>
-            <div>{post.text}</div>
-            <div>{post.date}</div>
-            <button onClick={()=>{setShow(true)}}>Delete this comment?</button>
-            {
-                show ? 
-                <div>
-                    <button onClick={deletePost}>Confirm</button>
-                    <button onClick={()=>{setShow(false)}}>Cancel</button>
+            <div className='viewPost'>
+                <div className='textContainer'>
+                    <div className='viewTitle'>{post.title}</div>
+                    <div className='viewText'>{post.text}</div>
+                    
                 </div>
-                :
-                <></>
-            }
+                <div className='viewBottom'>
+                    <div className='viewDate'>Published: {post.date}</div>
+                </div>
+
+            </div>
+            <div className='deleteSection'>
+                <button onClick={()=>{setShow(true)}}>Delete this comment?</button>
+                {
+                    show ? 
+                    <div>
+                        <button onClick={deletePost}>Confirm</button>
+                        <button onClick={()=>{setShow(false)}}>Cancel</button>
+                    </div>
+                    :
+                    <></>
+                }
+            </div>
+
         </div>
     )
 }

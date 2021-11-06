@@ -11,6 +11,9 @@ const DeleteComment = (props) => {
     useEffect(()=>{
         fetch(
             `https://dcblogapi.herokuapp.com/api/post/${props.match.params.id}/comment/${props.match.params.commentId}`,
+            {
+                credentials:'include'
+            }
         )
         .then(data=>{
             return data.json()

@@ -1,8 +1,9 @@
 import React, {useRef, useState, useEffect} from 'react'
 import {Redirect} from 'react-router';
 
-const LoginForm = () => {
+const LoginForm = (props) => {
 
+    console.log(props);
     const usernameRef = useRef(null)
     const passwordRef = useRef(null)
 
@@ -10,7 +11,6 @@ const LoginForm = () => {
     const [success,setSuccess] = useState(false)
     const [redirect , setRedirect] = useState(false);
 
-    //Maybe add response to already signed in;
     const submitForm = (e) =>{
         e.preventDefault();
 
@@ -46,11 +46,12 @@ const LoginForm = () => {
         if(success){
             setTimeout(()=>{
                 setRedirect(true)
+                props.changeAuth()
             },2000) 
         }
     },[success])
 
-    if(redirect){
+    if(redirect || props.auth){
         return <Redirect to='/'></Redirect>
     }
 
@@ -71,11 +72,11 @@ const LoginForm = () => {
             <div className='inputWrapper'>
                 <div>Login</div>
                 <div className='inputSection'>
-                    <label for='username'>Username</label>
+                    <label htmlFor='username'>Username</label>
                     <input ref={usernameRef} id='username' name='username'></input>
                 </div>
                 <div className='inputSection'>
-                    <label for='password'>Password</label>
+                    <label htmlFor='password'>Password</label>
                     <input ref={passwordRef} id='password' name='password'></input>
                 </div>
                 <button  className='submitBtn' onClick={submitForm}>Submit</button>
