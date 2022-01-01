@@ -15,6 +15,16 @@ input, button, textarea{
 label{
   font-size:1.4rem;
 }
+.buttonLink{
+  text-decoration:none;
+  color:black;
+  border:1px solid black;
+  padding:3px 7px;
+  transition:all 0.2s ease;
+}
+.buttonLink:hover{
+  transform:scaleX(1.05) scaleY(1.10);
+}
 /* Nav Bar */
 .navBar{
   display:grid;
@@ -50,29 +60,51 @@ label{
   font-size:2rem;
 }
 /* Home */
+.homePage{
+  background:#f8f8f8;
+  padding:50px 0;
+}
 .bottomRow{
   display:flex;
   width:100%;
   justify-content: space-between;
+  align-items:center;
+}
+.titleSection{
+  font-size:24px;
+  font-weight:600;
+  border-bottom:2px solid black;
+  padding:10px 0;
 }
 .singlePost{
   width:80%;
   padding:10px 20px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin:20px auto;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  margin:0 auto 50px auto;
+}
+.singlePost:last-child{
+  margin-bottom:0;
 }
 .textSection{
   width:100%;
-  margin:10px auto;
-  /* border:1px solid black; */
-  height:100px;
+  margin:20px 0;
+  min-height:100px;
+  font-size:1.2rem;
+  font-weight:400;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
   white-space:pre-line;
-  overflow:hidden;
+  padding-left:1.25rem;
+  padding-right:1.25rem;
+  padding-top:10px;
 }
 .rightSide.bottom{
   display:flex;
   width:200px;
   justify-content: space-around;
+  align-items:center;
 }
 
 /* Create a Post */
@@ -118,7 +150,13 @@ label{
   margin: 0 20px;
 }
 /* Delete */
-
+.deletePost{
+  display:flex;
+  margin:0 auto;
+  width:50%;
+  flex-direction: column;
+  margin-top:70px;
+}
 .deleteSection{
   width:100%;
   display:flex;
@@ -126,11 +164,20 @@ label{
   justify-content:center;
   align-items: center;
 }
+.deleteSection button{
+  width:200px;
+}
+.deleteRow{
+  display:grid;
+  grid-template-columns: auto auto;
+  grid-gap:24px;
+}
 /* View Post */
 .viewContainer{
   width:100%;
   max-width:1000px;
   margin:0 auto;
+  margin-top:70px;
 }
 .viewPost{
   display:flex;
@@ -139,6 +186,7 @@ label{
   flex-direction: column;
   padding:20px 0;
   margin-bottom:40px;
+
 }
 
 .textContainer{
@@ -146,14 +194,14 @@ label{
   margin:0 auto;
 }
 .viewTitle{
-  font-size:1.5rem;
-  margin-bottom: 10px;
+  font-size:3rem;
+  padding-bottom:50px;
 }
 .viewText{
   font-size:1.2rem;
   border: 1px solid black;
-  padding: 10px 15px;
-  margin-bottom:10px;
+  padding: 40px 45px;
+  margin-bottom:30px;
   border-radius: 5px;
   white-space:pre-line;
 }
@@ -165,6 +213,22 @@ label{
   display:flex;
   justify-content: space-around;
   width:250px;
+}
+/* Delete Comment */
+.deleteContainer{
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  height:80vh;
+}
+.deleteComment{
+  display:flex;
+  flex-direction: column;
+  width:500px;
+  justify-content: center;
+  align-items: center;
 }
 /* Comment */
 .commentSection{
@@ -180,6 +244,7 @@ label{
 .comment{
   border-bottom:2px solid black;
   padding:20px 0;
+  width:100%;
 }
 .comment:last-child{
   margin-bottom: 70px;
@@ -224,6 +289,13 @@ justify-content:flex-end;
 .createComment textarea{
   height:100px;
 }
+.singleDeleteComment{
+  color:black;
+  transition:all 0.2s ease;
+}
+.singleDeleteComment:hover{
+  color:red;
+}
 /* Login Route */
 .loginForm{
   display:grid;
@@ -247,6 +319,10 @@ justify-content:flex-end;
   flex-direction: column;
   width:80%;
 }
+.inputHeading{
+  font-size:24px;
+  padding:10px 0;
+}
 .submitBtn{
   width:80%;
   margin:10px auto;
@@ -257,4 +333,12 @@ justify-content:flex-end;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.loading{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100vh;
+  font-size:50px;
 }

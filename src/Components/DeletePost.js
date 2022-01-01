@@ -50,7 +50,7 @@ const DeletePost = (props) => {
     }
 
     if(Loading){
-        return <div>Loading</div>
+        return <div className='loading'>Loading</div>
     }
     if(redirect){
         return(
@@ -59,23 +59,23 @@ const DeletePost = (props) => {
     }
 
     return (
-        <div className='DeletePost'>
-            <div className='viewPost'>
+        <div>
+            <div className='deletePost'>
                 <div className='textContainer'>
                     <div className='viewTitle'>{post.title}</div>
                     <div className='viewText'>{post.text}</div>
                     
                 </div>
                 <div className='viewBottom'>
-                    <div className='viewDate'>Published: {post.date}</div>
+                    <div className='viewDate'>Published: {post.date_formatted}</div>
                 </div>
 
             </div>
             <div className='deleteSection'>
-                <button onClick={()=>{setShow(true)}}>Delete this comment?</button>
+                <button onClick={()=>{setShow(true)}}>Delete this Post?</button>
                 {
                     show ? 
-                    <div>
+                    <div className='deleteRow'>
                         <button onClick={deletePost}>Confirm</button>
                         <button onClick={()=>{setShow(false)}}>Cancel</button>
                     </div>

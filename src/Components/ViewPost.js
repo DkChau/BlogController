@@ -38,7 +38,7 @@ const ViewPost = (props) => {
         })
     },[])
 
-    //Submit Comment function ONLY FOR TESTING, NOT NEEDED ON CONTROLLER
+    //Submit Comment function
     const submitComment = (e) =>{
         e.preventDefault()
 
@@ -68,7 +68,7 @@ const ViewPost = (props) => {
 
 
     if(Loading){
-        return <div>Loading</div>
+        return <div className='loading'>Loading</div>
     }
     else if(errors.length!==0){
         return <div>{errors}</div>
@@ -85,10 +85,10 @@ const ViewPost = (props) => {
                 <div className='viewBottom'>
                     <div className='viewDate'>Created: {post.date_formatted}</div>
                     <div className='viewLinks'>
-                        <Link to={`/post/${props.match.params.id}/delete`}>
+                        <Link to={`/post/${props.match.params.id}/delete`} className='buttonLink'>
                             <span>Delete Post</span>
                         </Link>
-                        <Link to={`/post/${props.match.params.id}/update`}>
+                        <Link to={`/post/${props.match.params.id}/update`} className='buttonLink'>
                             <span>Update Post</span>
                         </Link>
                     </div>
@@ -106,7 +106,7 @@ const ViewPost = (props) => {
                     <label htmlFor='text'>Text</label>
                     <textarea ref={textRef} id='text' name='text'></textarea>
 
-                    <button onClick={submitComment}>Submit Comment</button>
+                    <button onClick={submitComment} className='buttonLink'>Submit Comment</button>
                 </form>
             </div>
             <div className='commentSection'>
@@ -120,7 +120,7 @@ const ViewPost = (props) => {
                             </div>
 
                             <div className='commentText'>{comment.text}</div>
-                            <Link to={`/post/${props.match.params.id}/comment/${comment._id}`}>
+                            <Link to={`/post/${props.match.params.id}/comment/${comment._id}`} className='singleDeleteComment' >
                                 <span className='commentRight'>Delete Comment</span>
                             </Link>
                         </div>

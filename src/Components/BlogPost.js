@@ -10,7 +10,7 @@ const BlogPost = (props) => {
                 <div>Created: {props.data.date_formatted}</div>
                 <div className='rightSide bottom'>
                     <div>{props.data.published ? 'Published' : 'Hidden'}</div>
-                    <Link to={'/post/'+props.data._id}>
+                    <Link to={'/post/'+props.data._id} className='buttonLink'>
                         <span>View Post</span>
                     </Link>
                 </div>

@@ -70,7 +70,7 @@ const LoginForm = (props) => {
                 })}
             </div>
             <div className='inputWrapper'>
-                <div>Login</div>
+                <div className='inputHeading'>Login</div>
                 <div className='inputSection'>
                     <label htmlFor='username'>Username</label>
                     <input ref={usernameRef} id='username' name='username'></input>

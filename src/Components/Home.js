@@ -24,10 +24,10 @@ const Home = () => {
     },[])
 
     if(Loading){
-        return <div>Loading</div>
+        return <div className='loading'>Loading</div>
     }
     return (
-        <div>
+        <div className='homePage'>
             {
                 posts.length===0 ? 
                 

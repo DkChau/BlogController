@@ -42,7 +42,6 @@ const DeleteComment = (props) => {
                 credentials:'include',
             }
         )
-        //VERY UNFINISHED
         .then(data=>{
             return data.json()
         })
@@ -62,21 +61,29 @@ const DeleteComment = (props) => {
     }
 
     return (
-        <div>
-            <div>{comment.name}</div>
-            <div>{comment.text}</div>
-            <button onClick={()=>{setShow(true)}}>Delete this comment?</button>
-            {
-                show ? 
-                <div>
-                    <button onClick={deleteComment}>Confirm</button>
-                    <button onClick={()=>{setShow(false)}}>Cancel</button>
+        <div className='deleteContainer'>
+            <div className='deleteComment'>
+                <div className='comment delete'>
+                    <div className='commentHead'>
+                        <div className='commentName'>{comment.name}</div>
+                        <div className='commentDate'>Submitted: {comment.date_formatted}</div>
+                    </div>
+
+                    <div className='commentText'>{comment.text}</div>
                 </div>
-                :
-                <></>
-            }
-
-
+            </div>
+            <div className='deleteSection'>
+                <button onClick={()=>{setShow(true)}}>Delete this comment?</button>
+                {
+                    show ? 
+                    <div className='deleteRow'>
+                        <button onClick={deleteComment}>Confirm</button>
+                        <button onClick={()=>{setShow(false)}}>Cancel</button>
+                    </div>
+                    :
+                    <></>
+                }
+            </div>
         </div>
     )
 }
