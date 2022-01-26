@@ -12,6 +12,10 @@ input, button, textarea{
   height:30px;
   margin:10px 0;
 }
+input[type='password']{
+  font: small-caption;
+  font-size: 1rem;
+}
 label{
   font-size:1.4rem;
 }

@@ -77,7 +77,7 @@ const LoginForm = (props) => {
                 </div>
                 <div className='inputSection'>
                     <label htmlFor='password'>Password</label>
-                    <input ref={passwordRef} id='password' name='password'></input>
+                    <input ref={passwordRef} id='password' name='password' type='password'></input>
                 </div>
                 <button  className='submitBtn' onClick={submitForm}>Submit</button>
             </div>
