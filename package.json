@@ -2,7 +2,7 @@
   "name": "blogcontroller",
   "version": "0.1.0",
   "private": true,
-  "homepage":"http://novaark.github.io/BlogController",
+  "homepage":"http://dkchau.github.io/BlogController",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
